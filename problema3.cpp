@@ -3,21 +3,27 @@ Autor --> Franklin Hiustong Gutierrez Arizaca*/
 #include <iostream>
 #include <conio.h>
 using namespace std;
-//int suma(int);
-int sumatoria(int a, int b, int limite){
+int suma=0;//variable global para guardar suma
+//========= FUNCION ====================
+int sumatoria(int a, int b, int limite) {
     int n = a + b;
-    cout<<n<<" ";
-    if(n>=limite){
-        return 0;
+    suma= suma+n;
+    cout << n << ", ";
+    if (n <= limite) {
+        return sumatoria(b, n, limite);
     }
-    return sumatoria(b,n,limite);
 }
+//======================================
+
 int main() {
     int x;
     cout<<"Ingresa la cantidad [mayor a 0] para calcular la suma de la sucesion [1+3+4+7+11+.....+Xn]: ";
     cin>>x;
-    cout<<"1 "<<"3 ";
+    cout<<"[ ";
+    cout<<"1, "<<"3, ";
     sumatoria(1,3,x);
-    cin.get();
+    cout<<"]";
+    cout<<"\nsuma = "<<suma+ 1+3;//mostar suam de la sucesion
+    getch();
     return 0;
 }
